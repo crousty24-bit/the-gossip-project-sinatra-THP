@@ -1,5 +1,4 @@
 require 'csv'
-#require 'pry'
 class Gossip
   attr_accessor :author, :content
   def initialize(author, content)
@@ -24,5 +23,16 @@ class Gossip
   def self.find(id)
     return Gossip.all[id.to_i]
   end
+
+  def self.update(id, author, content)
+    CSV.read("db/gossip.csv")
+    gossips = self.all
+    gossips[id.to_i].author = author
+    gossips[id.to_i].content = content
+    CSV.open("db/gossip.csv", "w") do |csv|
+      gossips.each do |new|
+        csv << [new.author, new.content]
+      end
+    end
+  end
 end
-#binding.pry
