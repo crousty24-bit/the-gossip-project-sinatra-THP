@@ -20,5 +20,9 @@ class Gossip
     end
     return all_gossips
   end
+
+  def self.find(id)
+    return Gossip.all[id.to_i]
+  end
 end
 #binding.pry

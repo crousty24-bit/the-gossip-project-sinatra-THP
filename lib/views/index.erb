@@ -6,10 +6,11 @@
     <h1>Mon super site de gossip, depuis le dossier views ! Haha c'est incroyable.</h1>
     <p>Update haha</p>
     <h2> Voici tous les gossips : </h2>
-    <% gossips.each do |gossip| %>
+    <% gossips.each_with_index do |gossip, index| %>
       <p>
-        <%= gossip.author %><br/>
-        <%= gossip.content %>
+        <%= index %> :
+        <a href="/gossips/<%= index %>/"><%= gossip.author %></a> 
+        : <%= gossip.content %>
       </p>
     <% end %>
   </body>
