@@ -1,7 +1,7 @@
 require_relative 'gossip'
 class ApplicationController < Sinatra::Base # new Class Application herit of class Sinatra (from gem)
   get '/' do
-    erb :index
+    erb :index, locals: {gossips: Gossip.all}
   end
   get '/gossips/new/' do #display the given url page
     erb :new_gossip
