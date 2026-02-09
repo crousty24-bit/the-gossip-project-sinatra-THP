@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 
-$:.unshift File.expand_path("./../lib", __FILE__)
+$:.unshift File.expand_path("./../lib/app", __FILE__)
 require 'controller'
 run ApplicationController
 
